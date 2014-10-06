@@ -12,7 +12,7 @@ Edit all generated thumbnails images crop area in a simple way.
 
 == Description ==
 
-**IMPORTANT NOTE: some users get a black image after edit it with ttt-crop tool. Increasing the memory fix it if not left a support message with all the details and will help you.
+**IMPORTANT NOTE: some users get a black image after edit it with ttt-crop tool. Increasing the memory fix it if not left a support message with all the details and will help you.**
 
 This is an easy and fast way to crop any uploaded image in your wordpress. No more complicate graphical editors, photos of people without head or products with wrong view. Select the thumbnail, edit the crop area and save a new thumbnail image.
 
@@ -72,6 +72,24 @@ function custom_tttcrop_image_sizes( $sizes ) {
 
     return $new;
 }`
+
+**Change the name of the image to human names**
+
+`function local_ttt_crop_human_name($name) {
+    switch( $name ) {
+        case 'single-slider';
+            return 'Home slider image'; break;
+        case 'widget-thumbnail';
+            return 'Widget small image'; break;
+
+        default:
+            return $name; break;
+    }
+}
+add_filter('ttt_crop_human_name','local_ttt_crop_human_name');`
+
+This will change the name of the image inside the tooltip when it is selected.
+
 
 == Installation ==
 
