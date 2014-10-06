@@ -45,11 +45,9 @@ You can send issues, ideas, etc.. to github the repo https://github.com/33themes
 
 == Hacks ==
 
+Just copy&paste this code into your functions.php
+
 **Remove sizes from the editor**
-
-You can remove some sizes from the TTT Crop thumbnail editor with this code in your functions.php. 
-
-Example code:
 
 `add_filter( 'tttcrop_image_sizes', 'custom_tttcrop_image_sizes');
 function custom_tttcrop_image_sizes( $sizes ) {
@@ -58,6 +56,10 @@ function custom_tttcrop_image_sizes( $sizes ) {
 	return $sizes;
 }
 ?>`
+
+This hack remove the thumbnail from TTT-Crop Editor tool.
+
+
 
 **Remove thumbnails sizes from the editor for an specific post type**
 
@@ -72,6 +74,10 @@ function custom_tttcrop_image_sizes( $sizes ) {
 
     return $new;
 }`
+
+Because we use only two or three thumbnails in a Custom Post Type.
+
+
 
 **Change the name of the image to human names**
 
@@ -89,6 +95,8 @@ function custom_tttcrop_image_sizes( $sizes ) {
 add_filter('ttt_crop_human_name','local_ttt_crop_human_name');`
 
 This will change the name of the image inside the tooltip when it is selected.
+
+
 
 
 == Installation ==
