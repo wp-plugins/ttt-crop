@@ -12,6 +12,8 @@ Edit all generated thumbnails images crop area in a simple way.
 
 == Description ==
 
+**IMPORTANT NOTE: some users get a black image after edit it with ttt-crop tool. Increasing the memory fix it if not left a support message with all the details and will help you.
+
 This is an easy and fast way to crop any uploaded image in your wordpress. No more complicate graphical editors, photos of people without head or products with wrong view. Select the thumbnail, edit the crop area and save a new thumbnail image.
 
 This plugin dones´t create new file or folder, when it save the new crop area rewrite the original thumbnail file, this means will not break the theme design :)
