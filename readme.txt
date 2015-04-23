@@ -74,3 +74,7 @@ e.g.
 
 1. Upload `ttt-crop` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Contributors ==
+
+Follow us on https://github.com/33themes/ttt-crop
