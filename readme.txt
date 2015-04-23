@@ -1,9 +1,9 @@
 === TTT Crop ===
 Contributors: 33themes, gabrielperezs, lonchbox, tomasog
 Tags: images, thumbnail, media editor, edit media, image sizes
-Requires at least: 3.9
-Tested up to: 4.0
-Stable tag: 0.1.1 
+Requires at least: 3.7
+Tested up to: 4.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -11,8 +11,6 @@ Edit all generated thumbnails images crop area in a simple way.
 
 
 == Description ==
-
-**IMPORTANT NOTE: some users get a black image after edit it with ttt-crop tool. Increasing the memory fix it if not left a support message with all the details and will help you.**
 
 This is an easy and fast way to crop any uploaded image in your wordpress. No more complicate graphical editors, photos of people without head or products with wrong view. Select the thumbnail, edit the crop area and save a new thumbnail image.
 
@@ -38,10 +36,10 @@ You can send issues, ideas, etc.. to github the repo https://github.com/33themes
 
 == Screenshots ==
 
-1. Choose the image size and crop the image in the area you want.
-2. Save the image ones is croped
-3. Find the links to open the tool 
-4. In featured
+1. Typical problem with cropped image.
+2. Go to medias and open the images, and click in TTT Crop.
+3. Choose the image you need, and crop in the area you want.
+4. You can crop from featured box
 
 == Hacks ==
 

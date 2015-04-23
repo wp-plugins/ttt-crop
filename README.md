@@ -5,8 +5,8 @@ TTT Crop
 * Contributors: 33themes, gabrielperezs, lonchbox, tomasog
 * Tags: images, thumbnail, media editor, edit media, image sizes
 * Requires at least: 3.7
-* Tested up to: 4.0
-* Stable tag: 0.1
+* Tested up to: 4.1.2
+* Stable tag: 0.1.3
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -21,6 +21,12 @@ This is an easy and fast way to crop any uploaded image in your wordpress. No mo
 
 This plugin dones´t create new file or folder, when it save the new crop area rewrite the original thumbnail file, this means will not break the theme design :)
 
+Available in WordPress.org
+==========================
+
+Yes, it is, here: https://wordpress.org/plugins/ttt-crop/
+
+
 Features
 ========
 
@@ -34,22 +40,25 @@ Features
 Screenshots
 ===========
 
-Choose the image size and crop the image in the area you want.
+Typical problem with cropped image.
 
-![How it works](/screenshot-1.png)
+![How it works](/screenshots/screenshot-1.png)
 
-Save the image ones is croped
+Go to medias and open the images, and click in TTT Crop.
 
-![Save](/screenshot-2.png)
+![Save](/screenshots/screenshot-2.png)
 
-Find the links to open the tool
+Choose the image you need, and crop in the area you want.
 
-![Edit image](/screenshot-3.png)
+![Edit image](/screenshots/screenshot-3.png)
 
-![Edit featured image](/screenshot-4.png)
+You can crop from featured box
+![Edit featured image](/screenshots/screenshot-4.png)
 
 Hacks
 =====
+
+Just copy&paste this code into your functions.php
 
 *Remove sizes from the editor*
 
@@ -66,22 +75,59 @@ Example code:
     }
 ```
 
-*Remove thumbnails sizes from the editor for an specific post type*
+*Set human names for the thumbnail names*
+
+For example, the name "author-thumbnail" could be "Author Image" 
 
 
 ```php
-    function custom_tttcrop_image_sizes_CPT($sizes) {
+    function local_ttt_crop_human_name($name) {
+        switch( $name ) {
+            case 'single-slider';
+                return 'Home slider image'; break;
+            case 'author-thumbnail';
+                return 'Author Image'; break;
 
-        foreach ($sizes as $key => $values) {
-            if ($key == 'THUMBNAIL-SIZE1')
-                $new[ $key ] = $values;
-            elseif ($key == 'THUMBNAIL-SIZE1')
-                $new[ $key ] = $values;            
+            default:
+                return $name; break;
         }
+    }
+    add_filter('ttt_crop_human_name','local_ttt_crop_human_name');
+```
 
+*Show some of the sizes of one post_type*
+
+In this example you existe the custom post type "author" and two image sizes
+for the author content (single, archive, etc..). And you want to show only this
+two image sizes on the crop screen. 
+
+The idea is make more simple for the end user, don't show all the sizes, only
+the sizes the user need.
+
+```php
+    add_action('init','custom_tttgallery_init',0);
+
+    function custom_tttgallery_init() {
+        global $pagenow;
+        
+        if ( 'admin-ajax.php' == $pagenow && $_REQUEST['action'] == 'ttt-crop_load' && isset($_REQUEST['post_id']) ) {
+            if ( $post_type == 'author') {
+                add_filter('tttcrop_image_sizes','custom_tttcrop_image_sizes_author');
+            }
+        }
+    }
+
+    function custom_tttcrop_image_sizes_author($sizes) {
+        foreach ($sizes as $key => $values) {
+            if ($key == 'author-thumbnail')
+                $new[ $key ] = $values;
+            elseif ($key == 'author-slider')
+                $new[ $key ] = $values;
+        }
         return $new;
     }
 ```
+
 
 Recomendations
 ==============
